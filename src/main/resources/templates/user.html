@@ -1,13 +1,39 @@
 <!DOCTYPE html>
-<html lang="en">
+<html xmlns:th="http://www.thymeleaf.org">
 <head>
+    <title>문의 목록</title>
     <meta charset="UTF-8">
-    <title>User</title>
 </head>
 <body>
-    id: <span th:text="${user.id}"></span><br>
-    password: <span th:text="${user.password}"></span><br>
-    name:<span th:text="${user.name}"></span><br>
-    auth:<span th:text="${user.auth}"></span><br>
+
+<h1>내 문의 목록</h1>
+
+<div>
+    <a th:href="@{/cs/inquiry}">
+        <button>문의하기</button>
+    </a>
+</div>
+
+<table>
+    <thead>
+    <tr>
+        <th>제목</th>
+        <th>분류</th>
+        <th>작성일시</th>
+        <th>답변여부</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr th:each="question : ${questions}">
+        <td>
+            <a th:href="@{'/cs/question/' + ${question.id}}" th:text="${question.title}"></a>
+        </td>
+        <td th:text="${question.category.toString}"></td>
+        <td th:text="${question.date}"></td>
+        <td th:text="${answerMap.containsKey(question.getId()) ? '답변완료' : '미답변'}">답변 여부</td>
+    </tr>
+    </tbody>
+</table>
+
 </body>
 </html>

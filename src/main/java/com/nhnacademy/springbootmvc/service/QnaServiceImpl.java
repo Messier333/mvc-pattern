@@ -1,0 +1,123 @@
+package com.nhnacademy.springbootmvc.service;
+
+import com.fasterxml.jackson.databind.ObjectMapper;
+import com.fasterxml.jackson.datatype.jsr310.JavaTimeModule;
+import com.nhnacademy.springbootmvc.domain.Answer;
+import com.nhnacademy.springbootmvc.domain.Category;
+import com.nhnacademy.springbootmvc.domain.Question;
+import com.nhnacademy.springbootmvc.domain.User;
+import com.nhnacademy.springbootmvc.exception.AnswerNotExistException;
+import lombok.extern.slf4j.Slf4j;
+import org.springframework.stereotype.Service;
+
+import java.io.*;
+import java.time.LocalDateTime;
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
+import java.util.Map;
+import java.util.concurrent.ConcurrentHashMap;
+
+@Slf4j
+@Service
+public class QnaServiceImpl implements QnaService {
+    private final ObjectMapper objectMapper = new ObjectMapper();
+    private List<Question> questions;
+    private Map<Long, Answer> answerMap;
+
+    @Override
+    public Map<Long, Answer> getAnswerMap() {
+        return answerMap;
+    }
+
+    @Override
+    public List<Question> unAnsweredQuestion() {
+        List<Question> questions = new ArrayList<>();
+        for (Question question : questions) {
+            if(!isAnswerExist(question)) {
+                questions.add(question);
+            }
+        }
+        return questions;
+    }
+
+    public QnaServiceImpl() {
+        try(Reader questionReader = new FileReader("question.json");
+        Reader answerReader = new FileReader("answer.json")){
+            objectMapper.registerModule(new JavaTimeModule());
+            answerMap = new ConcurrentHashMap<>();
+            questions = new ArrayList<>(Arrays.asList(objectMapper.readValue(questionReader, Question[].class)));
+            for(Answer answer: objectMapper.readValue(answerReader, Answer[].class)) {
+                answerMap.put(answer.getId(), answer);
+            }
+        } catch (FileNotFoundException e) {
+            throw new RuntimeException(e);
+        } catch (IOException e) {
+            throw new RuntimeException(e);
+        }
+    }
+
+    @Override
+    public List<Question> findQuestionByWriter(String writer) {
+        List<Question> questionList = new ArrayList<>();
+        for(Question question: questions) {
+            if(question.getWriterId().equals(writer)) {
+                questionList.add(question);
+            }
+        }
+        return questionList;
+    }
+
+    @Override
+    public Answer findAnswerByQuestion(Question question) {
+        if(!isAnswerExist(question)) {
+            throw new AnswerNotExistException();
+        }
+        return answerMap.get(question.getId());
+    }
+
+    @Override
+    public List<String> filePathList(Question question) {
+        return question.getFilePath();
+    }
+
+    @Override
+    public void saveQuestion(Question question) {
+        question.setId(questions.size()+1);
+        question.setDate(LocalDateTime.now());
+        questions.add(question);
+        try (Writer writer = new FileWriter("question.json")) {
+            objectMapper.writerWithDefaultPrettyPrinter().writeValue(writer, questions);
+        } catch (IOException e) {
+            throw new RuntimeException(e);
+        }
+    }
+
+    @Override
+    public List<Question> findQuestionByCategory(Category category) {
+        List<Question> questionList = new ArrayList<>();
+        for(Question question: questions) {
+            if(question.getCategory().equals(category)) {
+                questionList.add(question);
+            }
+        }
+        return questionList;
+    }
+
+
+    @Override
+    public boolean isAnswerExist(Question question) {
+        return answerMap.containsKey(question.getId());
+    }
+
+    @Override
+    public void saveAnswer(Answer answer) {
+        answerMap.put(answer.getId(), answer);
+        try (Writer writer = new FileWriter("answer.json")) {
+            objectMapper.writerWithDefaultPrettyPrinter()
+                    .writeValue(writer, answerMap.values());
+        } catch (IOException e) {
+            throw new RuntimeException(e);
+        }
+    }
+}
