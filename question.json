@@ -62,4 +62,44 @@
   "date" : [ 2025, 4, 11, 23, 42, 3, 304011800 ],
   "writerId" : "test1",
   "filePath" : null
+}, {
+  "id" : 9,
+  "title" : "환불입니다",
+  "category" : "REFUND_EXCHANGE",
+  "content" : "환불",
+  "date" : [ 2025, 4, 12, 16, 53, 26, 47163978 ],
+  "writerId" : "test1",
+  "filePath" : null
+}, {
+  "id" : 10,
+  "title" : "기타테스트",
+  "category" : "OTHER",
+  "content" : "기타",
+  "date" : [ 2025, 4, 12, 16, 55, 45, 622400612 ],
+  "writerId" : "test1",
+  "filePath" : null
+}, {
+  "id" : 11,
+  "title" : "로그인테스트",
+  "category" : "REFUND_EXCHANGE",
+  "content" : "로그인1234",
+  "date" : [ 2025, 4, 12, 17, 15, 17, 19339273 ],
+  "writerId" : "test1",
+  "filePath" : null
+}, {
+  "id" : 12,
+  "title" : "테스트",
+  "category" : "COMPLAINT",
+  "content" : "테스트123",
+  "date" : [ 2025, 4, 12, 18, 23, 24, 78193942 ],
+  "writerId" : "test1",
+  "filePath" : null
+}, {
+  "id" : 13,
+  "title" : "테스트등록",
+  "category" : "COMPLAINT",
+  "content" : "테스트등록입니다.",
+  "date" : [ 2025, 4, 12, 20, 5, 28, 685110743 ],
+  "writerId" : "test1",
+  "filePath" : null
 } ]

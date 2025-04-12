@@ -4,7 +4,6 @@ import org.springframework.validation.BindingResult;
 
 import java.util.stream.Collectors;
 
-// TODO #15: validation 예외
 public class ValidationFailedException extends RuntimeException {
     public ValidationFailedException(BindingResult bindingResult) {
         super(bindingResult.getAllErrors()

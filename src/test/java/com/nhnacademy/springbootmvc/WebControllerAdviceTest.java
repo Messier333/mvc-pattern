@@ -1,6 +1,6 @@
 package com.nhnacademy.springbootmvc;
 
-import com.nhnacademy.springbootmvc.controller.WebControllerAdvice;
+import com.nhnacademy.springbootmvc.aop.WebControllerAdvice;
 
 import lombok.extern.slf4j.Slf4j;
 import org.junit.jupiter.api.Test;

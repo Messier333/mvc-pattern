@@ -5,7 +5,7 @@ import lombok.Getter;
 import lombok.RequiredArgsConstructor;
 import lombok.Setter;
 
-import java.util.Date;
+import java.time.LocalDateTime;
 
 @RequiredArgsConstructor
 @Getter
@@ -14,6 +14,6 @@ public class Answer {
     long id;
     @Size(min = 1, max = 40000)
     String answer;
-    Date answerDate;
+    LocalDateTime answerDate;
     String answerWriter;
 }

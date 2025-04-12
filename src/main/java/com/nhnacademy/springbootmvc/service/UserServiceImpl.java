@@ -56,6 +56,7 @@ public class UserServiceImpl implements UserService {
         if (!exist(id)) {
             throw new UserNotFoundException();
         }
+        log.info("serviceGetUser:{}", userMap.get(id).getId());
         return userMap.get(id);
     }
 

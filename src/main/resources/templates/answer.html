@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <title>문의 답변하기</title>
+</head>
+<body>
+<h1>문의 답변하기</h1>
+
+<table>
+    <tbody>
+    <tr>
+        <th>제목</th>
+        <td th:text="${question.getTitle()}">문의 제목</td>
+    </tr>
+    <tr>
+        <th>본문</th>
+        <td th:text="${question.getContent()}">문의 본문</td>
+    </tr>
+    <tr>
+        <th>카테고리</th>
+        <td th:text="${question.getCategory()}">문의 카테고리</td>
+    </tr>
+    <tr>
+        <th>작성자</th>
+        <td th:text="${question.getWriterId()}">문의 카테고리</td>
+    </tr>
+
+    </tbody>
+</table>
+
+<form action="#" th:action="@{'/cs/admin/answer/' + ${question.getId()}}" method="post">
+    <div>
+        <label for="answer"><strong>답변:</strong></label><br/>
+        <textarea id="answer" name="answer" rows="10" cols="80" placeholder="여기에 답변을 작성하세요"></textarea>
+    </div>
+    <div class="button-area">
+        <button type="submit" class="btn submit">답변하기</button>
+        <a th:href="@{/cs/admin}" class="btn cancel">취소</a>
+    </div>
+</form>
+</body>
+</html>

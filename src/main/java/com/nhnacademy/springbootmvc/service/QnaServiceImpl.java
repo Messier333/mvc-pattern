@@ -7,6 +7,7 @@ import com.nhnacademy.springbootmvc.domain.Category;
 import com.nhnacademy.springbootmvc.domain.Question;
 import com.nhnacademy.springbootmvc.domain.User;
 import com.nhnacademy.springbootmvc.exception.AnswerNotExistException;
+import com.nhnacademy.springbootmvc.exception.QuestionNotFoundException;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;
 
@@ -32,13 +33,13 @@ public class QnaServiceImpl implements QnaService {
 
     @Override
     public List<Question> unAnsweredQuestion() {
-        List<Question> questions = new ArrayList<>();
+        List<Question> unanswered = new ArrayList<>();
         for (Question question : questions) {
-            if(!isAnswerExist(question)) {
-                questions.add(question);
+            if (!isAnswerExist(question)) {
+                unanswered.add(question);
             }
         }
-        return questions;
+        return unanswered;
     }
 
     public QnaServiceImpl() {
@@ -66,6 +67,16 @@ public class QnaServiceImpl implements QnaService {
             }
         }
         return questionList;
+    }
+
+    @Override
+    public Question findQuestionById(Long id) {
+        for(Question question: questions) {
+            if(question.getId() == id) {
+                return question;
+            }
+        }
+        throw new QuestionNotFoundException();
     }
 
     @Override

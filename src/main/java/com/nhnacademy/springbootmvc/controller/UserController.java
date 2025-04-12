@@ -30,19 +30,13 @@ public class UserController {
         this.qnaService = qnaService;
     }
 
-    @ModelAttribute("user")
-    public User getUser(@CookieValue(value = "SESSION") String id) {
-        if(!userService.exist(id)){
-            throw new UserNotFoundException();
-        }
-        return userService.getUser(id);
-    }
 
     @GetMapping
     public String userPage(@ModelAttribute("user") User user, Model model) {
         if(user.getAuth().equals(Auth.ADMIN)){
             return "redirect:/cs/admin";
         }
+        log.info("user: " + user.getId());
         List<Question> questionList = qnaService.findQuestionByWriter(user.getId());
         model.addAttribute("questions", questionList);
         model.addAttribute("answerMap", qnaService.getAnswerMap());
@@ -50,10 +44,13 @@ public class UserController {
     }
 
     @GetMapping("/admin")
-    public String adminPage(@ModelAttribute("user") User user) {
+    public String adminPage(@ModelAttribute("user") User user, Model model) {
         if (user.getAuth().equals(Auth.USER)) {
             throw new UnauthorizedAccessException();
         }
-        return "user";
+        List<Question> list = qnaService.unAnsweredQuestion();
+        model.addAttribute("questions", list);
+        return "admin";
     }
+
 }

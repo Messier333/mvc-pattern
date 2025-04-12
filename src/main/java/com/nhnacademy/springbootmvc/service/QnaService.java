@@ -9,6 +9,7 @@ import java.util.Map;
 
 public interface QnaService {
     List<Question> findQuestionByWriter(String writer);
+    Question findQuestionById(Long id);
     Answer findAnswerByQuestion(Question question);
     List<String> filePathList(Question question);
     void saveQuestion(Question question);

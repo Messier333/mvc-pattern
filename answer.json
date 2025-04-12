@@ -1,8 +1,41 @@
-[
-  {
-    "id": 1,
-    "answer" : "곧도착합니다",
-    "answerDate" : "2025-04-11T14:10:00",
-    "answerWriter" : "admin1"
-  }
-]
+[ {
+  "id" : 1,
+  "answer" : "곧도착합니다",
+  "answerDate" : [ 2025, 4, 11, 14, 10 ],
+  "answerWriter" : "admin1"
+}, {
+  "id" : 2,
+  "answer" : "넵",
+  "answerDate" : [ 2025, 4, 12, 19, 43, 15, 286684338 ],
+  "answerWriter" : "admin1"
+}, {
+  "id" : 3,
+  "answer" : "알겠습니다",
+  "answerDate" : [ 2025, 4, 12, 19, 42, 22, 81875059 ],
+  "answerWriter" : "admin1"
+}, {
+  "id" : 7,
+  "answer" : "테스트답변입니다.",
+  "answerDate" : [ 2025, 4, 12, 20, 17, 23, 24746884 ],
+  "answerWriter" : "admin1"
+}, {
+  "id" : 10,
+  "answer" : "기타",
+  "answerDate" : [ 2025, 4, 12, 19, 43, 19, 528806874 ],
+  "answerWriter" : "admin1"
+}, {
+  "id" : 11,
+  "answer" : "테스트입니다",
+  "answerDate" : [ 2025, 4, 12, 19, 43, 25, 344455756 ],
+  "answerWriter" : "admin1"
+}, {
+  "id" : 12,
+  "answer" : "테스트",
+  "answerDate" : [ 2025, 4, 12, 19, 42, 37, 777667936 ],
+  "answerWriter" : "admin1"
+}, {
+  "id" : 13,
+  "answer" : "테스트답변입니다.",
+  "answerDate" : [ 2025, 4, 12, 20, 5, 50, 410156012 ],
+  "answerWriter" : "admin1"
+} ]
