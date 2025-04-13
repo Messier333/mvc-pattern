@@ -1,46 +1,41 @@
 [ {
+  "id" : 16,
+  "answer" : "ㅁㄴㅇㅁㄴㅇ",
+  "answerDate" : [ 2025, 4, 13, 20, 44, 57, 881582100 ],
+  "answerWriter" : "admin2"
+}, {
   "id" : 1,
-  "answer" : "곧도착합니다",
-  "answerDate" : [ 2025, 4, 11, 14, 10 ],
+  "answer" : "불만답변1",
+  "answerDate" : [ 2025, 4, 13, 20, 44, 12, 185559800 ],
+  "answerWriter" : "admin1"
+}, {
+  "id" : 17,
+  "answer" : "이미지잘나옴",
+  "answerDate" : [ 2025, 4, 13, 20, 44, 31, 889075500 ],
   "answerWriter" : "admin1"
 }, {
   "id" : 2,
-  "answer" : "넵",
-  "answerDate" : [ 2025, 4, 12, 19, 43, 15, 286684338 ],
+  "answer" : "반품답변",
+  "answerDate" : [ 2025, 4, 13, 20, 44, 22, 913874100 ],
   "answerWriter" : "admin1"
 }, {
   "id" : 3,
-  "answer" : "알겠습니다",
-  "answerDate" : [ 2025, 4, 12, 19, 42, 22, 81875059 ],
+  "answer" : "상품제안답변",
+  "answerDate" : [ 2025, 4, 13, 20, 44, 17, 56442200 ],
+  "answerWriter" : "admin1"
+}, {
+  "id" : 4,
+  "answer" : "ㄳㄳ",
+  "answerDate" : [ 2025, 4, 13, 20, 44, 25, 189243400 ],
   "answerWriter" : "admin1"
 }, {
   "id" : 7,
-  "answer" : "테스트답변입니다.",
-  "answerDate" : [ 2025, 4, 12, 20, 17, 23, 24746884 ],
-  "answerWriter" : "admin1"
-}, {
-  "id" : 8,
-  "answer" : "admin2테스트",
-  "answerDate" : [ 2025, 4, 12, 21, 48, 30, 27276432 ],
+  "answer" : "확인",
+  "answerDate" : [ 2025, 4, 13, 20, 44, 52, 803579200 ],
   "answerWriter" : "admin2"
 }, {
-  "id" : 10,
-  "answer" : "기타",
-  "answerDate" : [ 2025, 4, 12, 19, 43, 19, 528806874 ],
-  "answerWriter" : "admin1"
-}, {
-  "id" : 11,
-  "answer" : "테스트입니다",
-  "answerDate" : [ 2025, 4, 12, 19, 43, 25, 344455756 ],
-  "answerWriter" : "admin1"
-}, {
-  "id" : 12,
-  "answer" : "테스트",
-  "answerDate" : [ 2025, 4, 12, 19, 42, 37, 777667936 ],
-  "answerWriter" : "admin1"
-}, {
-  "id" : 13,
-  "answer" : "테스트답변입니다.",
-  "answerDate" : [ 2025, 4, 12, 20, 5, 50, 410156012 ],
-  "answerWriter" : "admin1"
+  "id" : 14,
+  "answer" : "admin2답변",
+  "answerDate" : [ 2025, 4, 13, 20, 44, 48, 669512800 ],
+  "answerWriter" : "admin2"
 } ]

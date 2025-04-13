@@ -42,6 +42,10 @@ public class QnaServiceImpl implements QnaService {
     }
 
     public QnaServiceImpl() {
+
+        fileCreate("question.json");
+        fileCreate("answer.json");
+
         try(Reader questionReader = new FileReader("question.json");
         Reader answerReader = new FileReader("answer.json")){
             objectMapper.registerModule(new JavaTimeModule());
@@ -52,6 +56,17 @@ public class QnaServiceImpl implements QnaService {
             }
         } catch (IOException e) {
             throw new RuntimeException(e);
+        }
+    }
+
+    private void fileCreate(String fileName) {
+        File file = new File(fileName);
+        if (!file.exists()) {
+            try (BufferedWriter bw = new BufferedWriter(new FileWriter(file))) {
+                bw.write("[]");
+            } catch (IOException e) {
+                throw new RuntimeException("파일생성실패", e);
+            }
         }
     }
 
@@ -94,6 +109,11 @@ public class QnaServiceImpl implements QnaService {
         } catch (IOException e) {
             throw new RuntimeException(e);
         }
+    }
+
+    @Override
+    public int questionNum(){
+        return questions.size()+1;
     }
 
     @Override

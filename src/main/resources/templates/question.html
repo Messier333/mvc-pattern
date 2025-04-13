@@ -14,7 +14,17 @@
   </tr>
   <tr>
     <td>본문</td>
-    <td th:text="${question.content}">본문 내용</td>
+    <td th:text="${question.content}" rows="10" cols="50">본문 내용</td>
+  </tr>
+  <tr th:if="${question.filePath != null and not #lists.isEmpty(question.filePath)}">
+    <td>첨부 이미지</td>
+    <td>
+      <ul>
+        <li th:each="path : ${question.filePath}">
+          <img th:src="${path}" alt="첨부 이미지" style="max-width: 200px;" />
+        </li>
+      </ul>
+    </td>
   </tr>
   <tr>
     <td>카테고리</td>
@@ -24,7 +34,7 @@
     <td>작성일</td>
     <td th:text="${question.date}">작성일 내용</td>
   </tr>
-  <tr th:if="${isAnswerExist}">
+  <tr th:if="${not isAnswerExist}">
     <td colspan="2" class="marking">답변 안됨</td>
   </tr>
 
@@ -37,7 +47,7 @@
     <tbody>
     <tr>
       <td>답변 내용</td>
-      <td th:text="${answer.answer}">답변 내용</td>
+      <td th:text="${answer.answer}" rows="10" cols="50">답변 내용</td>
     </tr>
     <tr>
       <td>답변 작성일</td>

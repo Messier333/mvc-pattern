@@ -6,9 +6,7 @@ import com.nhnacademy.springbootmvc.exception.UserNotFoundException;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;
 
-import java.io.FileReader;
-import java.io.IOException;
-import java.io.Reader;
+import java.io.*;
 import java.util.Map;
 import java.util.Optional;
 import java.util.concurrent.ConcurrentHashMap;
@@ -19,6 +17,15 @@ public class UserServiceImpl implements UserService {
     private final Map<String, User> userMap = new ConcurrentHashMap<>();
 
     public UserServiceImpl(){
+        File userFile = new File("users.json");
+        if (!userFile.exists()) {
+            try (BufferedWriter bw = new BufferedWriter(new FileWriter(userFile))) {
+                bw.write("[]");
+            } catch (IOException e) {
+                throw new RuntimeException("파일생성실패", e);
+            }
+        }
+
         try(Reader reader = new FileReader("users.json")){
             ObjectMapper objectMapper = new ObjectMapper();
             User[] user = objectMapper.readValue(reader, User[].class);
