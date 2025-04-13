@@ -12,9 +12,10 @@ import org.springframework.web.servlet.HandlerInterceptor;
 public class LoginCheckInterceptor implements HandlerInterceptor {
     @Override
     public boolean preHandle(@NonNull HttpServletRequest request, @NonNull HttpServletResponse response,@NonNull Object handler) {
-        HandlerMethod handlerMethod = (HandlerMethod) handler;
-        if(handlerMethod.getBeanType().getSimpleName().equals("LoginController")) {
-            return true;
+        if (handler instanceof HandlerMethod handlerMethod) {
+            if (handlerMethod.getBeanType().getSimpleName().equals("LoginController")) {
+                return true;
+            }
         }
 
         String cookieValue = null;

@@ -38,6 +38,8 @@ public class LoginController {
                           ModelMap modelMap) {
         if (userService.match(id, pwd)) {
             Cookie cookie = new Cookie("SESSION", id);
+            cookie.setSecure(true);
+            cookie.setHttpOnly(true);
             System.out.println(cookie);
             response.addCookie(cookie);
 
@@ -51,6 +53,8 @@ public class LoginController {
     @GetMapping("/logout")
     public String logout(HttpServletResponse response) {
         Cookie cookie = new Cookie("SESSION", null);
+        cookie.setSecure(true);
+        cookie.setHttpOnly(true);
         cookie.setMaxAge(0);
         response.addCookie(cookie);
         return "redirect:/cs/login";

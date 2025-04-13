@@ -4,6 +4,11 @@
   "answerDate" : [ 2025, 4, 13, 20, 44, 57, 881582100 ],
   "answerWriter" : "admin2"
 }, {
+  "id" : 0,
+  "answer" : "answer",
+  "answerDate" : [ 2025, 4, 13, 22, 44, 1, 94558100 ],
+  "answerWriter" : null
+}, {
   "id" : 1,
   "answer" : "불만답변1",
   "answerDate" : [ 2025, 4, 13, 20, 44, 12, 185559800 ],
