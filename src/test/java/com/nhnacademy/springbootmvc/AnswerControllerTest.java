@@ -42,7 +42,7 @@ class AnswerControllerTest {
         when(qnaService.findQuestionById(1L)).thenReturn(mockQuestion);
 
         mockMvc.perform(get("/cs/admin/answer/1")
-                        .cookie(new Cookie("SESSION", "adminUser")))
+                        .cookie(new Cookie("SESSION", "admin")))
                 .andExpect(status().isOk())
                 .andExpect(view().name("answer"));
     }
@@ -57,7 +57,7 @@ class AnswerControllerTest {
         doNothing().when(qnaService).saveAnswer(any(Answer.class));
 
         mockMvc.perform(post("/cs/admin/answer/1")
-                        .cookie(new Cookie("SESSION", "adminUser"))
+                        .cookie(new Cookie("SESSION", "admin"))
                         .param("answerTitle", "답변 제목")
                         .param("answerContents", "답변 내용"))
                 .andExpect(status().is3xxRedirection())

@@ -17,10 +17,43 @@ public class UserServiceImpl implements UserService {
     private final Map<String, User> userMap = new ConcurrentHashMap<>();
 
     public UserServiceImpl(){
+
         File userFile = new File("users.json");
         if (!userFile.exists()) {
             try (BufferedWriter bw = new BufferedWriter(new FileWriter(userFile))) {
-                bw.write("[]");
+                bw.write("""
+                        [
+                          {
+                            "id": "test1",
+                            "pwd": "1234",
+                            "name": "user1",
+                            "auth": "USER"
+                          },
+                          {
+                            "id": "test2",
+                            "pwd": "1234",
+                            "name": "user2",
+                            "auth": "USER"
+                          },
+                          {
+                            "id": "user03",
+                            "pwd": "user123",
+                            "name": "user3",
+                            "auth": "USER"
+                          },
+                          {
+                            "id": "admin1",
+                            "pwd": "1234",
+                            "name": "adm1",
+                            "auth": "ADMIN"
+                          },
+                          {
+                            "id": "admin2",
+                            "pwd": "1234",
+                            "name": "adm2",
+                            "auth": "ADMIN"
+                          }
+                        ]""");
             } catch (IOException e) {
                 throw new RuntimeException("파일생성실패", e);
             }

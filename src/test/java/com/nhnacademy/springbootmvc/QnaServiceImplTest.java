@@ -9,13 +9,14 @@ import com.nhnacademy.springbootmvc.service.QnaServiceImpl;
 import org.junit.jupiter.api.Test;
 import org.mockito.Spy;
 import org.springframework.boot.test.context.SpringBootTest;
+import org.springframework.boot.test.mock.mockito.MockBean;
 
 import java.time.LocalDateTime;
 
 @SpringBootTest
 class QnaServiceImplTest {
 
-    @Spy
+    @MockBean
     QnaServiceImpl qnaService;
 
     @Test

@@ -125,7 +125,7 @@
   "content" : "파일업로드테스트입니다.",
   "date" : [ 2025, 4, 13, 20, 5, 55, 43605300 ],
   "writerId" : "test1",
-  "filePath" : [ "/images/16/스크린샷 2024-11-09 131840.png", "/images/16/스크린샷 2024-11-09 180128.png", "/images/16/스크린샷 2024-11-10 082905.png", "/images/16/스크린샷 2024-11-12 145231.png", "/images/16/스크린샷 2024-11-12 145429.png", "/images/16/스크린샷 2024-11-12 145454.png" ]
+  "filePath" : null
 }, {
   "id" : 17,
   "title" : "이미지테스트용",
@@ -142,92 +142,4 @@
   "date" : [ 2025, 4, 13, 20, 31, 31, 570717300 ],
   "writerId" : "test1",
   "filePath" : [ "/images/18/test2.jpg" ]
-}, {
-  "id" : 19,
-  "title" : "title",
-  "category" : "OTHER",
-  "content" : null,
-  "date" : [ 2025, 4, 13, 22, 31, 47, 267587900 ],
-  "writerId" : null,
-  "filePath" : null
-}, {
-  "id" : 20,
-  "title" : "title",
-  "category" : "OTHER",
-  "content" : null,
-  "date" : [ 2025, 4, 13, 22, 31, 55, 115361100 ],
-  "writerId" : null,
-  "filePath" : null
-}, {
-  "id" : 21,
-  "title" : "title",
-  "category" : "OTHER",
-  "content" : null,
-  "date" : [ 2025, 4, 13, 22, 42, 2, 267636800 ],
-  "writerId" : null,
-  "filePath" : null
-}, {
-  "id" : 22,
-  "title" : "title",
-  "category" : "OTHER",
-  "content" : null,
-  "date" : [ 2025, 4, 13, 22, 42, 49, 383127200 ],
-  "writerId" : null,
-  "filePath" : null
-}, {
-  "id" : 23,
-  "title" : "title",
-  "category" : "OTHER",
-  "content" : null,
-  "date" : [ 2025, 4, 13, 22, 44, 1, 32921300 ],
-  "writerId" : null,
-  "filePath" : null
-}, {
-  "id" : 24,
-  "title" : "title",
-  "category" : "OTHER",
-  "content" : null,
-  "date" : [ 2025, 4, 13, 22, 45, 40, 140573500 ],
-  "writerId" : null,
-  "filePath" : null
-}, {
-  "id" : 25,
-  "title" : "title",
-  "category" : "OTHER",
-  "content" : null,
-  "date" : [ 2025, 4, 13, 22, 47, 47, 774457700 ],
-  "writerId" : null,
-  "filePath" : null
-}, {
-  "id" : 26,
-  "title" : "title",
-  "category" : "OTHER",
-  "content" : null,
-  "date" : [ 2025, 4, 13, 22, 49, 54, 254051100 ],
-  "writerId" : null,
-  "filePath" : null
-}, {
-  "id" : 27,
-  "title" : "title",
-  "category" : "OTHER",
-  "content" : null,
-  "date" : [ 2025, 4, 13, 22, 51, 58, 200013100 ],
-  "writerId" : null,
-  "filePath" : null
-}, {
-  "id" : 28,
-  "title" : "title",
-  "category" : "OTHER",
-  "content" : null,
-  "date" : [ 2025, 4, 13, 22, 53, 53, 154715700 ],
-  "writerId" : null,
-  "filePath" : null
-}, {
-  "id" : 29,
-  "title" : "title",
-  "category" : "OTHER",
-  "content" : null,
-  "date" : [ 2025, 4, 13, 22, 55, 44, 515328300 ],
-  "writerId" : null,
-  "filePath" : null
-} ]
+}]

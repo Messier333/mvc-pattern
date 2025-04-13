@@ -69,7 +69,7 @@ class QuestionControllerTest {
     @Test
     void getQuestion_wrongUser() throws Exception {
         willThrow(new UnauthorizedAccessException()).given(qnaService).findQuestionById(2L);
-        mockMvc.perform(get("/cs/question/2").cookie(new Cookie("SESSION", "notOwner")))
+        mockMvc.perform(get("/cs/question/2").cookie(new Cookie("SESSION", "notAuth")))
                 .andExpect(status().is4xxClientError());
     }
 
