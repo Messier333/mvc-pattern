@@ -70,4 +70,12 @@
   "date" : [ 2025, 4, 12, 16, 53, 26, 47163978 ],
   "writerId" : "test1",
   "filePath" : null
-}]
+}, {
+  "id" : 10,
+  "title" : "ㅁㄴㅇ",
+  "category" : "SUGGESTION",
+  "content" : "ㅁㅇㄴㄹㄹ",
+  "date" : [ 2025, 4, 14, 0, 26, 40, 332549600 ],
+  "writerId" : "test1",
+  "filePath" : [ "/images/10/test1.jpg", "/images/10/test2.jpg" ]
+} ]

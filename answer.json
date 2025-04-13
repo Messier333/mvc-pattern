@@ -1,1 +1,21 @@
-[]
+[ {
+  "id" : 2,
+  "answer" : "asd",
+  "answerDate" : [ 2025, 4, 14, 0, 15, 38, 470634400 ],
+  "answerWriter" : "admin1"
+}, {
+  "id" : 4,
+  "answer" : "asdf",
+  "answerDate" : [ 2025, 4, 14, 0, 15, 40, 103187700 ],
+  "answerWriter" : "admin1"
+}, {
+  "id" : 8,
+  "answer" : "fasdfsa",
+  "answerDate" : [ 2025, 4, 14, 0, 15, 42, 491633400 ],
+  "answerWriter" : "admin1"
+}, {
+  "id" : 10,
+  "answer" : "ffsad",
+  "answerDate" : [ 2025, 4, 14, 0, 26, 48, 595288100 ],
+  "answerWriter" : "admin1"
+} ]
