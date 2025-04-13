@@ -6,14 +6,10 @@
 </head>
 <body>
 
-<h1>내 문의 목록</h1>
 
-<div>
-    <a th:href="@{/cs/inquiry}">
-        <button>문의하기</button>
-    </a>
-</div>
 
+
+<h1>미답변 문의 목록</h1>
 <table>
     <thead>
     <tr>
@@ -34,6 +30,12 @@
     </tr>
     </tbody>
 </table>
+
+<div>
+    <a th:href="@{/cs/logout}">
+        <button>로그아웃</button>
+    </a>
+</div>
 
 </body>
 </html>

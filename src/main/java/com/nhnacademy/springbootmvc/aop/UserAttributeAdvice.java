@@ -25,7 +25,7 @@ public class UserAttributeAdvice {
     @ModelAttribute("user")
     public User getUser(@CookieValue(value = "SESSION") String id) {
         log.info("getUser:{}", id);
-        if (!userService.exist(id)) {
+        if (userService.exist(id)) {
             throw new UserNotFoundException();
         }
         return userService.getUser(id);

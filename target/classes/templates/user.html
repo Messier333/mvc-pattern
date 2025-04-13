@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html xmlns:th="http://www.thymeleaf.org">
+<html xmlns:th="http://www.thymeleaf.org" lang="kr">
 <head>
     <title>문의 목록</title>
     <meta charset="UTF-8">
@@ -14,6 +14,28 @@
     </a>
 </div>
 
+<div>
+    <a th:href="@{/cs/logout}">
+        <button>로그아웃</button>
+    </a>
+</div>
+
+
+<div>
+    <form th:action="@{/cs}" method="get">
+        <label for="category">카테고리 선택:</label>
+        <select id="category" name="category">>
+            <option value="">전체</option>
+            <option th:each="cat : ${T(com.nhnacademy.springbootmvc.domain.Category).values()}"
+                    th:value="${cat.name()}"
+                    th:text="${cat.toString()}">
+            </option>
+        </select>
+        <button type="submit">검색</button>
+    </form>
+</div>
+
+
 <table>
     <thead>
     <tr>
@@ -24,6 +46,7 @@
     </tr>
     </thead>
     <tbody>
+
     <tr th:each="question : ${questions}">
         <td>
             <a th:href="@{'/cs/question/' + ${question.id}}" th:text="${question.title}"></a>

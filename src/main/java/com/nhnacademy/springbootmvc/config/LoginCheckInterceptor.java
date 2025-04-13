@@ -4,16 +4,14 @@ import jakarta.servlet.http.Cookie;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 import lombok.extern.slf4j.Slf4j;
-import org.springframework.web.context.request.RequestContextHolder;
-import org.springframework.web.context.request.ServletRequestAttributes;
+import org.springframework.lang.NonNull;
 import org.springframework.web.method.HandlerMethod;
 import org.springframework.web.servlet.HandlerInterceptor;
-import org.springframework.web.servlet.ModelAndView;
 
 @Slf4j
 public class LoginCheckInterceptor implements HandlerInterceptor {
     @Override
-    public boolean preHandle(HttpServletRequest request, HttpServletResponse response, Object handler) throws Exception {
+    public boolean preHandle(@NonNull HttpServletRequest request, @NonNull HttpServletResponse response,@NonNull Object handler) {
         HandlerMethod handlerMethod = (HandlerMethod) handler;
         if(handlerMethod.getBeanType().getSimpleName().equals("LoginController")) {
             return true;
@@ -25,12 +23,12 @@ public class LoginCheckInterceptor implements HandlerInterceptor {
             for (Cookie cookie : cookies) {
                 if ("SESSION".equals(cookie.getName())) {
                     cookieValue = cookie.getValue();
-                    log.info("쿠키 값: " + cookieValue);
+                    log.info("쿠키 값: {}", cookieValue);
                 }
             }
         }
         if(cookieValue == null){
-            throw new RuntimeException();
+            throw new RuntimeException("비로그인");
         }
 
         return true;

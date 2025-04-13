@@ -11,11 +11,11 @@ public interface QnaService {
     List<Question> findQuestionByWriter(String writer);
     Question findQuestionById(Long id);
     Answer findAnswerByQuestion(Question question);
-    List<String> filePathList(Question question);
+
     void saveQuestion(Question question);
     List<Question> findQuestionByCategory(Category category);
     boolean isAnswerExist(Question question);
     void saveAnswer(Answer answer);
-    public Map<Long, Answer> getAnswerMap();
-    public List<Question> unAnsweredQuestion();
+    Map<Long, Answer> getAnswerMap();
+    List<Question> unAnsweredQuestion();
 }

@@ -102,4 +102,12 @@
   "date" : [ 2025, 4, 12, 20, 5, 28, 685110743 ],
   "writerId" : "test1",
   "filePath" : null
+}, {
+  "id" : 14,
+  "title" : "test2테스트",
+  "category" : "OTHER",
+  "content" : "test2입니다",
+  "date" : [ 2025, 4, 12, 21, 55, 44, 120520568 ],
+  "writerId" : "test2",
+  "filePath" : null
 } ]

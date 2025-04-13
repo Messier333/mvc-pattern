@@ -24,6 +24,10 @@
     <td>작성일</td>
     <td th:text="${question.date}">작성일 내용</td>
   </tr>
+  <tr th:if="${isAnswerExist}">
+    <td colspan="2" class="marking">답변 안됨</td>
+  </tr>
+
   </tbody>
 </table>
 

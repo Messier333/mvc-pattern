@@ -1,23 +1,21 @@
 package com.nhnacademy.springbootmvc.controller;
 
 import com.nhnacademy.springbootmvc.domain.Auth;
+import com.nhnacademy.springbootmvc.domain.Category;
 import com.nhnacademy.springbootmvc.domain.Question;
 import com.nhnacademy.springbootmvc.domain.User;
 import com.nhnacademy.springbootmvc.exception.UnauthorizedAccessException;
-import com.nhnacademy.springbootmvc.exception.UserNotFoundException;
 import com.nhnacademy.springbootmvc.service.QnaService;
 import com.nhnacademy.springbootmvc.service.UserService;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.CookieValue;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 
-import java.util.HashMap;
 import java.util.List;
-import java.util.Map;
 
 @Slf4j
 @Controller
@@ -32,12 +30,17 @@ public class UserController {
 
 
     @GetMapping
-    public String userPage(@ModelAttribute("user") User user, Model model) {
+    public String userPage(@ModelAttribute("user") User user, Model model, @RequestParam(required = false) String category) {
         if(user.getAuth().equals(Auth.ADMIN)){
             return "redirect:/cs/admin";
         }
-        log.info("user: " + user.getId());
-        List<Question> questionList = qnaService.findQuestionByWriter(user.getId());
+        List<Question> questionList;
+        if(category!=null&&!category.isEmpty()){
+            model.addAttribute("category", category);
+            questionList = qnaService.findQuestionByCategory(Category.valueOf(category));
+        } else {
+            questionList = qnaService.findQuestionByWriter(user.getId());
+        }
         model.addAttribute("questions", questionList);
         model.addAttribute("answerMap", qnaService.getAnswerMap());
         return "user";

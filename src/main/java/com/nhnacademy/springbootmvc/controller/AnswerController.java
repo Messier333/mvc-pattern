@@ -21,8 +21,11 @@ public class AnswerController {
     }
 
     @ModelAttribute("question")
-    public Question getQuestion(@PathVariable("id") String id) {
-        return qnaService.findQuestionById(Long.parseLong(id));
+    public Question getQuestion(@PathVariable("id") String id, Model model) {
+        Question question = qnaService.findQuestionById(Long.parseLong(id));
+        model.addAttribute("answerExist", qnaService.isAnswerExist(question));
+
+        return question;
     }
 
 
@@ -38,10 +41,9 @@ public class AnswerController {
         if(bindingResult.hasErrors()) {
             throw new ValidationFailedException(bindingResult);
         }
-        Answer answer1 = answer;
-        answer1.setId(Long.parseLong(id));
-        answer1.setAnswerWriter(uid);
-        answer1.setAnswerDate(LocalDateTime.now());
+        answer.setId(Long.parseLong(id));
+        answer.setAnswerWriter(uid);
+        answer.setAnswerDate(LocalDateTime.now());
         qnaService.saveAnswer(answer);
         return "redirect:/cs/admin";
     }

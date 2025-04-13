@@ -5,7 +5,6 @@ import com.fasterxml.jackson.datatype.jsr310.JavaTimeModule;
 import com.nhnacademy.springbootmvc.domain.Answer;
 import com.nhnacademy.springbootmvc.domain.Category;
 import com.nhnacademy.springbootmvc.domain.Question;
-import com.nhnacademy.springbootmvc.domain.User;
 import com.nhnacademy.springbootmvc.exception.AnswerNotExistException;
 import com.nhnacademy.springbootmvc.exception.QuestionNotFoundException;
 import lombok.extern.slf4j.Slf4j;
@@ -23,8 +22,8 @@ import java.util.concurrent.ConcurrentHashMap;
 @Service
 public class QnaServiceImpl implements QnaService {
     private final ObjectMapper objectMapper = new ObjectMapper();
-    private List<Question> questions;
-    private Map<Long, Answer> answerMap;
+    private final List<Question> questions;
+    private final Map<Long, Answer> answerMap;
 
     @Override
     public Map<Long, Answer> getAnswerMap() {
@@ -51,8 +50,6 @@ public class QnaServiceImpl implements QnaService {
             for(Answer answer: objectMapper.readValue(answerReader, Answer[].class)) {
                 answerMap.put(answer.getId(), answer);
             }
-        } catch (FileNotFoundException e) {
-            throw new RuntimeException(e);
         } catch (IOException e) {
             throw new RuntimeException(e);
         }
@@ -85,11 +82,6 @@ public class QnaServiceImpl implements QnaService {
             throw new AnswerNotExistException();
         }
         return answerMap.get(question.getId());
-    }
-
-    @Override
-    public List<String> filePathList(Question question) {
-        return question.getFilePath();
     }
 
     @Override

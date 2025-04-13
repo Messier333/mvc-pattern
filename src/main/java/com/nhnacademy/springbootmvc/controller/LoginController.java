@@ -1,6 +1,5 @@
 package com.nhnacademy.springbootmvc.controller;
 
-import com.nhnacademy.springbootmvc.domain.Auth;
 import com.nhnacademy.springbootmvc.service.UserService;
 import jakarta.servlet.http.Cookie;
 import jakarta.servlet.http.HttpServletResponse;

@@ -5,7 +5,6 @@ import com.nhnacademy.springbootmvc.domain.User;
 import com.nhnacademy.springbootmvc.exception.ValidationFailedException;
 import com.nhnacademy.springbootmvc.service.QnaService;
 import jakarta.validation.Valid;
-import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Controller;
 import org.springframework.validation.BindingResult;

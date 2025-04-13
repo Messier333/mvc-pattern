@@ -2,11 +2,9 @@ package com.nhnacademy.springbootmvc.controller;
 
 
 import com.nhnacademy.springbootmvc.domain.Question;
-import com.nhnacademy.springbootmvc.domain.User;
 import com.nhnacademy.springbootmvc.exception.QuestionNotFoundException;
 import com.nhnacademy.springbootmvc.exception.UnauthorizedAccessException;
 import com.nhnacademy.springbootmvc.service.QnaService;
-import jdk.jfr.Category;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
